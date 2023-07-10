@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Converter</title>
+  <meta name="author" content="Your Name">
+  <style>
+    /* CSS styles for centering the content */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtext {
+      text-align: center;
+      padding: 10px;
+      margin: 25px 200px 75px;
+      border: 1px solid red;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    /* Other CSS styles for your page */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Dummy Stocks</h1>
+    <p>By: Mark McAteer</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" id="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" id="password"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+  </div>
+  <div class="subtext">
+    If you don't have an account please type in your desired username and password. This will create an account for you.
+    Please don't use the same password for this site as you do for others, as the information is not encrypted.
+  </div>
+
+</body>
+</html>
